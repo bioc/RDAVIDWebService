@@ -1,0 +1,14 @@
+DAVIDWebService 0.99.1
+----------------------------------------------------------------
+
+MINOR CHANGES
+
+* `dontrun` tags have been removed from plotting examples (Thanks to Valerie
+Obenchain).
+
+DAVIDWebService 0.99.0
+----------------------------------------------------------------
+
+DOCUMENTATION
+
+* `NEWS` file was added.

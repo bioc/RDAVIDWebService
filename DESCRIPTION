@@ -1,0 +1,43 @@
+Package: RDAVIDWebService
+Type: Package
+Title: An R Package for retrieving data from DAVID into R objects using
+        Web Services API.
+Version: 0.99.1
+Date: 2013-02-04
+Author: Cristobal Fresno and Elmer A. Fernandez
+Maintainer: Cristobal Fresno <cristobalfresno@gmail.com>
+Description: Tools for retrieving data from the Database
+    for Annotation, Visualization and Integrated Discovery
+    (DAVID) using Web Services into R objects. This package
+    offers the main functionalities of DAVID website
+    including: i) user friendly connectivity to upload
+    gene/background list/s, change gene/background
+    position, select current specie/s, select annotations,
+    etc. ii) Reports of the submitted Gene List, Annotation
+    Category Summary, Gene/Term Clusters, Functional
+    Annotation Chart, Functional Annotation Table
+License: GPL (>=2)
+biocViews: Bioinformatics, Visualization, AssayDomains,
+        DifferentialExpression, ExperimentData, Cancer
+URL: http://www.bdmg.com.ar, http://david.abcc.ncifcrf.gov/
+Depends: R (>= 2.14.1), methods, rJava, ggplot2, GO.db, graph,
+        Category, GOstats, RBGL
+Collate: 'DAVIDdemo-ids.R' 'DAVIDdemo-geneList.R'
+        'DAVIDdemo-annotationSummary.R'
+        'DAVIDdemo-functionalAnnotationChart.R'
+        'DAVIDdemo-annotationTable.R' 'DAVIDdemo-clusterReport.R'
+        'DAVIDResult-class.R' 'DAVIDGenes-class.R'
+        'DAVIDFunctionalAnnotationChart-class.R' 'DAVIDCluster-class.R'
+        'DAVIDGeneCluster-class.R' 'DAVIDTermCluster-class.R'
+        'DAVIDFunctionalAnnotationTable-class.R' 'DAVIDGODag-class.R'
+        'DAVIDWebService-class.R' 'DAVIDClasses-show.R'
+        'DAVIDClasses-ids.R' 'DAVIDClasses-plot2D.R'
+        'DAVIDClasses-summary.R' 'DAVIDClasses-genes.R'
+        'DAVIDClasses-categories.R' 'DAVIDResult-getters.R'
+        'DAVIDGenes-methods.R' 'DAVIDCluster-methods.R'
+        'DAVIDFunctionalAnnotationTable-methods.R'
+        'DAVIDGODag-methods.R' 'DAVIDWebService-accessors.R'
+        'DAVIDWebService-methods.R' 'DAVIDWebService-reports.R'
+        'DAVIDClasses-constructor.R' 'RDAVIDWebService-package.R'
+Suggests: Rgraphviz
+InstallableEverywhere: yes
