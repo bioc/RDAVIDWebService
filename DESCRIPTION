@@ -2,7 +2,7 @@ Package: RDAVIDWebService
 Type: Package
 Title: An R Package for retrieving data from DAVID into R objects using
         Web Services API.
-Version: 0.99.1
+Version: 0.99.2
 Date: 2013-02-04
 Author: Cristobal Fresno and Elmer A. Fernandez
 Maintainer: Cristobal Fresno <cristobalfresno@gmail.com>
