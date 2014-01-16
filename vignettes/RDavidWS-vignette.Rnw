@@ -145,7 +145,7 @@ identifiers).
 \begin{Schunk}
 \begin{Sinput}
 R> library("RDAVIDWebService")
-R> david<-DAVIDWebService$new("user@inst.org")
+R> david<-DAVIDWebService$new(email="user@inst.org")
 R> data(demoList1)
 R> result<-addList(david, demoList1,
 + idType="AFFYMETRIX_3PRIME_IVT_ID",

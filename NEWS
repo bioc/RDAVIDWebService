@@ -1,4 +1,40 @@
+Changes in version 1.1.1
+----------------------------------------------------------------
+
+DOCUMENTATION
+
+    * CITATION file was included.
+    * Minor updates to DAVIDWebService-class and 
+    DAVIDWebService-package man pages and Roxygen2 quotes, in 
+    order to include the article citation.
+    * Vignette email parameter invocation corrected.
+
+CODE CHANGES
+
+    * DAVIDWebService initialize email parameter order modification (email, ..., url)
+
+DEPENDENCY CHANGES
+
+    * Category, GO.db, RBGL and rJava packages were moved to import.
+    * NAMESPACE file updated accordingly.
+
+Changes in version 1.1.0
+----------------------------------------------------------------
+
+MINOR CHANGES
+
+    * Bump y in version x.y.z to odd number in 2.14 devel 
+
+Changes in version 1.0.0
+----------------------------------------------------------------
+
+MINOR CHANGES
+
+    * fix NEWS formatting
+    * bump y of x.y.z version number for BioC 2.13 release
+
 Changes in version 0.99.1
+----------------------------------------------------------------
 
 MINOR CHANGES
 
@@ -6,7 +42,7 @@ MINOR CHANGES
     Obenchain).
 
 Changes in version 0.99.0
-
+----------------------------------------------------------------
 DOCUMENTATION
 
     * `NEWS` file was added.

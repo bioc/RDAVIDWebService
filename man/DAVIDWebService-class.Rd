@@ -46,8 +46,8 @@
   with a summary of all available annotations in DAVID in
   terms of percentage of gene list ids present in the
   category and numbers of terms where they can be found
-  (see getAnnotationSummary)} \item{\code{initialize(...,
-  email="", url)}:}{constructor for DAVIDWebService object,
+  (see getAnnotationSummary)} \item{\code{initialize(email="",
+  ..., url)}:}{constructor for DAVIDWebService object,
   which includes: Java Virtual Machine initialization (...
   if required), and stub initialization with the provided
   email (if present) and using the url parameter for the
@@ -158,7 +158,11 @@
   Stephens, Michael W. Baseler, H. Clifford Lane, Richard
   A. Lempicki, DAVID-WS: A Stateful Web Service to
   Facilitate Gene/Protein List Analysis Bioinformatics 2012
-  \url{doi:10.1093/bioinformatics/bts251} }
+  \url{doi:10.1093/bioinformatics/bts251} 
+  \item Cristobal Fresno, Elmer A. Fernandez (2013) 
+  RDAVIDWebService: a versatile R interface to DAVID, 
+  Bioinformatics, 29(21), 2810-2811.,
+  \url{http://bioinformatics.oxfordjournals.org/content/29/21/2810.}}
 }
 \seealso{
   Other DAVIDWebService: \code{\link{addList}},

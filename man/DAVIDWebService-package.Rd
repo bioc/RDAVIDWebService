@@ -39,7 +39,11 @@
   extract biology from large gene lists. Nucleic Acids Res,
   Laboratory of Immunopathogenesis and Bioinformatics,
   SAIC-Frederick, Inc., National Cancer Institute at
-  Frederick, MD 21702, USA., 2007, 35, W169-W175 }
+  Frederick, MD 21702, USA., 2007, 35, W169-W175 
+  \item Cristobal Fresno, Elmer A. Fernandez (2013) 
+  RDAVIDWebService: a versatile R interface to DAVID, 
+  Bioinformatics, 29(21), 2810-2811.,
+  \url{http://bioinformatics.oxfordjournals.org/content/29/21/2810.}}
 }
 \keyword{DAVID}
 \keyword{MEA}
