@@ -9,14 +9,18 @@
 \alias{getCurrentSpeciesPosition,DAVIDWebService-method}
 \alias{getDefaultCategoryNames,DAVIDWebService-method}
 \alias{getGeneListNames,DAVIDWebService-method}
+\alias{getHttpProtocolVersion,DAVIDWebService-method}
 \alias{getIdTypes,DAVIDWebService-method}
 \alias{getListName,DAVIDWebService-method}
 \alias{getSpecieNames,DAVIDWebService-method}
+\alias{getTimeOut,DAVIDWebService-method}
 \alias{is.connected,DAVIDWebService-method}
 \alias{setAnnotationCategories,DAVIDWebService-method}
 \alias{setCurrentBackgroundPosition,DAVIDWebService-method}
 \alias{setCurrentGeneListPosition,DAVIDWebService-method}
 \alias{setCurrentSpecies,DAVIDWebService-method}
+\alias{setHttpProtocolVersion,DAVIDWebService-method}
+\alias{setTimeOut,DAVIDWebService-method}
 \alias{addList}
 \alias{connect}
 \alias{getAllAnnotationCategoryNames}
@@ -26,15 +30,19 @@
 \alias{getCurrentSpeciesPosition}
 \alias{getDefaultCategoryNames}
 \alias{getGeneListNames}
+\alias{getHttpProtocolVersion}
 \alias{getIdTypes}
 \alias{getListName}
 \alias{getSpecieNames}
+\alias{getTimeOut}
 \alias{is.connected}
 \alias{setAnnotationCategories}
 \alias{setCurrentBackgroundPosition}
 \alias{setCurrentBackgroundPosition(position)}
 \alias{setCurrentGeneListPosition}
 \alias{setCurrentSpecies}
+\alias{setHttpProtocolVersion}
+\alias{setTimeOut}
 \title{Methods to manipulate DAVID website}
 \usage{
   is.connected(object)
@@ -93,6 +101,14 @@
 
   \S4method{getCurrentSpeciesPosition}{DAVIDWebService}(object)
 
+  getTimeOut(object)
+
+  \S4method{getTimeOut}{DAVIDWebService}(object)
+
+  getHttpProtocolVersion(object)
+
+  \S4method{getHttpProtocolVersion}{DAVIDWebService}(object)
+
   setCurrentGeneListPosition(object, position)
 
   \S4method{setCurrentGeneListPosition}{DAVIDWebService}(object,
@@ -112,6 +128,14 @@
 
   \S4method{setAnnotationCategories}{DAVIDWebService}(object,
   categories)
+
+  setTimeOut(object, milliSeconds)
+
+  \S4method{setTimeOut}{DAVIDWebService}(object, milliSeconds)
+
+  setHttpProtocolVersion(object, version)
+
+  \S4method{setHttpProtocolVersion}{DAVIDWebService}(object, version)
 }
 \arguments{
   \item{object}{DAVIDWebService class object.}
@@ -134,6 +158,14 @@
 
   \item{categories}{character vector with the category
   name/s to use in the analysis.}
+
+  \item{milliSeconds}{integer with time defined in milli 
+  seconds.}
+
+  \item{version}{character with HTTP_PROTOCOL_VERSION to use.
+  At present available strings are: "1.1", "1.0", 
+  "HTTP/1.1" and "HTTP/1.0"}
+
 }
 \value{
   according to the call one of the following objects can be
@@ -210,7 +242,18 @@
   \item{\code{setCurrentSpecies}:}{Select the specie/s of
   the submitted gene list to use in the analysis.}
   \item{\code{setAnnotationCategories}:}{Let the user to
-  select specific annotation categories.} }
+  select specific annotation categories.} 
+  \item{\code{getTimeOut}:}{Get apache Axis time out in 
+  milliSeconds.}
+  \item{\code{setTimeOut}:}{Set apache Axis time out in 
+  milliSeconds.}
+  \item{\code{getHttpProtocolVersion}:}{Get apache Axis 
+  HTTP_PROTOCOL_VERSION.}
+  \item{\code{setHttpProtocolVersion}:}{Set apache Axis 
+  HTTP_PROTOCOL_VERSION. possible values are defined in 
+  org.apache.axis2.transport.http.HTTPConstants class 
+  with HEADER_PROTOCOL_XX property. At present available 
+  strings are: "1.1", "1.0", "HTTP/1.1" and "HTTP/1.0".}}
 }
 \examples{
 david <- DAVIDWebService$new()

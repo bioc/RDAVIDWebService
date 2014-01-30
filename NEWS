@@ -1,3 +1,22 @@
+Changes in version 1.1.2
+----------------------------------------------------------------
+
+CODE CHANGES
+
+    * In setAs(from="data.frame", to="DAVIDFunctionalAnnotationChart")
+    function PValue field force to numeric data type (thanks to Marc Carlson)
+
+NEW FEATURES
+
+    * Apache Axis time out parameter modification set/getTimeOut
+    * Apache Axis http protocol version parameter modification
+    set/getHttpProtocolVersion
+
+DOCUMENTATION
+
+    * Vignette Trouble shooting section added with apache axis 
+    parameter examples.    
+
 Changes in version 1.1.1
 ----------------------------------------------------------------
 

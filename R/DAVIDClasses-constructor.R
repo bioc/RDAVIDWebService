@@ -286,6 +286,7 @@ setAs(from="data.frame", to="DAVIDFunctionalAnnotationChart",
       from$Category<-as.factor(from$Category)
       from$Term<-as.character(from$Term)
       from$Genes<-as.character(from$Genes)
+      from$PValue<-as.numeric(as.character(from$PValue))
       
       ##The Gene List Report
       to@.Data<-as.list(from)

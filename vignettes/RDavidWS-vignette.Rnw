@@ -287,6 +287,49 @@ structure from the cluster, NAs (not available) are introduced when required.}
   \label{fig:GO}
 \end{figure}
 
+\section{Trouble shooting}
+Sometimes apache Axis' default parameters needs to be changed in order to use 
+RDAVIDWebService. For example if DAVID web service is bussy the default timeout
+would not be enought. Then you can inspect it and change it calling:
+
+\begin{Schunk}
+\begin{Sinput}
+R> getTimeout(david)
+\end{Sinput}
+\begin{Soutput}
+[1] 30000
+\end{Soutput}
+\begin{Sinput}
+R> setTimeout(david, 50000)
+R> getTimeout(david)
+\end{Sinput}
+\begin{Soutput}
+[1] 50000
+\end{Soutput}
+\end{Schunk}
+
+Other reported parameter that might need to be changed is the transport
+protocol if you get the following error when uploading a gene list:
+
+\begin{Schunk}
+\begin{Soutput}
+org.apache.axis2.AxisFault: Transport error: 501 Error: Not Implemented
+\end{Soutput}
+\end{Schunk}
+
+Then you can change on the client side the appropiate parameter value:
+
+\begin{Schunk}
+\begin{Sinput}
+R> setHttpProtocolVersion(david, "HTTP/1.0")
+R> getHttpProtocolVersion(david)
+\end{Sinput}
+\begin{Soutput}
+[1] "HTTP/1.0"
+\end{Soutput}
+\end{Schunk}
+
+
 \section*{Acknowledgements}
 \emph{Funding}: this work was supported by the National University of Villa 
 Maria [31/0186 to E.F. and 31/0187 to E.F.] and Catholic University of

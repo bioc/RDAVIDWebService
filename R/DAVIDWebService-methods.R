@@ -36,6 +36,13 @@
 #'  list to use in the analysis.}
 #'  \item{\code{setAnnotationCategories}:}{Let the user to select specific
 #'  annotation categories.}
+#'  \item{\code{getTimeOut}:}{Get apache Axis time out in milliSeconds.}
+#'  \item{\code{setTimeOut}:}{Set apache Axis time out in milliSeconds.}
+#'  \item{\code{getHttpProtocolVersion}:}{Get apache Axis HTTP_PROTOCOL_VERSION.}
+#'  \item{\code{setHttpProtocolVersion}:}{Set apache Axis HTTP_PROTOCOL_VERSION. 
+#'  possible values are defined in org.apache.axis2.transport.http.HTTPConstants
+#'  class with HEADER_PROTOCOL_XX property. At present available strings are: 
+#'  "1.1", "1.0", "HTTP/1.1" and "HTTP/1.0".}
 #' }
 #'
 #' @param object DAVIDWebService class object.
@@ -49,6 +56,8 @@
 #' @param species numeric vector with the specie/s to use.
 #' @param categories character vector with the category name/s to use in the
 #' analysis.
+#' @param milliSeconds integer with time defined in milli seconds.
+#' @param version character with HTTP_PROTOCOL_VERSION to use.
 #'
 #' @return according to the call one of the following objects can be returned
 #'  \item{is.connected}{TRUE if user has registered email with DAVID knowledge
@@ -408,4 +417,114 @@ setGeneric(name="setAnnotationCategories", def=function(object, categories){
 setMethod(f="setAnnotationCategories", signature=signature("DAVIDWebService"),
   definition=function(object, categories){
     object$setAnnotationCategories(categories)
+})
+#'
+#' @exportMethod getTimeOut
+#' @name getTimeOut
+#' @rdname DAVIDWebService-methods
+#' @inheritParams is.connected
+#' @usage getTimeOut(object)
+#' @aliases getTimeOut
+#' @family DAVIDWebService
+setGeneric(name="getTimeOut", def=function(object){
+  standardGeneric("getTimeOut")
+})
+#'
+#' @rdname DAVIDWebService-methods
+#' @inheritParams is.connected
+#' @usage \S4method{getTimeOut}{DAVIDWebService}(object)
+#' @aliases getTimeOut,DAVIDWebService-method
+setMethod(f="getTimeOut", signature=signature("DAVIDWebService"), 
+  definition=function(object){
+  getStub(object)$"_getServiceClient"()$getOptions()$getTimeOutInMilliSeconds()
+})
+#'
+#' @exportMethod setTimeOut
+#' @name setTimeOut
+#' @rdname DAVIDWebService-methods
+#' @inheritParams is.connected
+#' @usage setTimeOut(object, milliSeconds)
+#' @aliases setTimeOut
+#' @family DAVIDWebService
+setGeneric(name="setTimeOut",def = function(object, milliSeconds){
+  standardGeneric("setTimeOut")})
+#'
+#' @rdname DAVIDWebService-methods
+#' @inheritParams is.connected
+#' @usage \S4method{setTimeOut}{DAVIDWebService}(object, milliSeconds)
+#' @aliases setTimeOut,DAVIDWebService-method
+setMethod(f="setTimeOut", signature=signature("DAVIDWebService"), 
+  definition=function(object, milliSeconds){
+  ##Get the stub
+  stub<-getStub(object)
+  
+  ##Check for milliSeconds
+  if(missing(milliSeconds)){
+    milliSeconds<-stub$"_getServiceClient"()$getOptions()$DEFAULT_TIMEOUT_MILLISECONDS
+  }
+
+  ##Set new time out value
+  stub$"_getServiceClient"()$getOptions()$setTimeOutInMilliSeconds(.jlong(milliSeconds))
+
+  return(invisible(NULL))
+})
+#'
+#' @exportMethod getHttpProtocolVersion
+#' @name getHttpProtocolVersion
+#' @rdname DAVIDWebService-methods
+#' @inheritParams is.connected
+#' @usage getHttpProtocolVersion(object)
+#' @aliases getHttpProtocolVersion
+#' @family DAVIDWebService
+setGeneric(name="getHttpProtocolVersion", def=function(object){
+  standardGeneric("getHttpProtocolVersion")
+})
+#'
+#' @rdname DAVIDWebService-methods
+#' @inheritParams is.connected
+#' @usage \S4method{getHttpProtocolVersion}{DAVIDWebService}(object)
+#' @aliases getHttpProtocolVersion,DAVIDWebService-method
+setMethod(f="getHttpProtocolVersion", signature=signature("DAVIDWebService"), 
+  definition=function(object){
+   axisConstants<-.jnew("org.apache.axis2.transport.http.HTTPConstants")
+   stub<-getStub(object)
+   stub$"_getServiceClient"()$getOptions()$getProperty(axisConstants$HTTP_PROTOCOL_VERSION) 
+})
+#'
+#' @exportMethod setHttpProtocolVersion
+#' @name setHttpProtocolVersion
+#' @rdname DAVIDWebService-methods
+#' @inheritParams is.connected
+#' @usage setHttpProtocolVersion(object, version)
+#' @aliases setHttpProtocolVersion
+#' @family DAVIDWebService
+setGeneric(name="setHttpProtocolVersion", def=function(object, version){
+  standardGeneric("setHttpProtocolVersion")
+})
+#'
+#' @rdname DAVIDWebService-methods
+#' @inheritParams is.connected
+#' @usage \S4method{setHttpProtocolVersion}{DAVIDWebService}(object, version)
+#' @aliases setHttpProtocolVersion,DAVIDWebService-method
+setMethod(f="setHttpProtocolVersion", signature=signature("DAVIDWebService"), 
+  definition=function(object, version){
+
+  ##Get possible Protocol Versions
+  axisConstants<-.jnew("org.apache.axis2.transport.http.HTTPConstants")
+  possibleVersions<-which(regexpr(pattern="HEADER_PROTOCOL_", names(axisConstants))>0)
+  possibleVersions<-names(axisConstants)[possibleVersions]
+
+  possibleVersions<-sapply(possibleVersions, function(x){
+    .jfield(axisConstants, name=x)})
+  
+  ##Check version parameter
+  if(!missing(version)){
+    stopifnot(version %in% possibleVersions)
+
+    stub<-getStub(object)
+    stub$"_getServiceClient"()$getOptions()$setProperty(
+      axisConstants$HTTP_PROTOCOL_VERSION, version)
+  }
+  
+  return(invisible(NULL))
 })
