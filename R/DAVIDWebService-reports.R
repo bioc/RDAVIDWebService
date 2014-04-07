@@ -264,7 +264,7 @@ setGeneric(name="getFunctionalAnnotationChartFile", def=function(object,
 setMethod(f="getFunctionalAnnotationChartFile", 
   signature=signature("DAVIDWebService"), definition=function(object,
   fileName, threshold=0.1, count=2L){
-  object$getFunctionalAnnotationChartFile(fileName, threshold=0.1, count=2L)
+  object$getFunctionalAnnotationChartFile(fileName, threshold=threshold, count=count)
 })
 #' @exportMethod getFunctionalAnnotationChart
 #' @name getFunctionalAnnotationChart
