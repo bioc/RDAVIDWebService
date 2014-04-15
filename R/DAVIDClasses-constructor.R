@@ -734,7 +734,7 @@ setMethod(f="initialize", signature=signature("DAVIDGODag"),
       found<-funChart$PValue < pvalueCutoff 
 
       ##Check whether to build the DAG or not
-      if(length(found)>0){
+      if(any(found)){
         ##Get the GO DAG
         goGraph<-GOGraph(as.character(funChart$ID[found]),
          getFromNamespace(x="GOenv", ns="GOstats")(paste(type[1], "PARENTS",

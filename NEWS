@@ -1,3 +1,27 @@
+Changes in version 1.3.1
+----------------------------------------------------------------
+
+BUG FIXED
+
+    * `DAVIDGODag` bug was fixed. Now in case that pvalueCutoff
+    value is lower than every value present an empty goDag is
+    returned (Thanks to Ulrik Stervbo)
+
+Changes in version 1.3.0
+----------------------------------------------------------------
+
+MINOR CHANGES
+
+    * Second bump y in version x.y.z after creating 2.14 release 
+    branch. 
+
+Changes in version 1.2.0
+----------------------------------------------------------------
+
+MINOR CHANGES
+
+    * First bump y in version x.y.z prior creating 2.14 branch.
+
 Changes in version 1.1.4
 ----------------------------------------------------------------
 
