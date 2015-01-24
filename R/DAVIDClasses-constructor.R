@@ -699,7 +699,7 @@ setMethod(f="initialize", signature=signature("DAVIDGODag"),
     stopifnot(type[1] %in% c("BP", "MF", "CC"))
 
     ##Empty output
-    .Object<-callNextMethod()
+    .Object<-callNextMethod(.Object, ...)
     .Object@pvalueCutoff<-pvalueCutoff
     .Object@testName[2]<-type[1]
     .Object@goDag<-new("graphNEL", edgemode="directed")
