@@ -2,7 +2,7 @@ Package: RDAVIDWebService
 Type: Package
 Title: An R Package for retrieving data from DAVID into R objects using
         Web Services API.
-Version: 1.29.0
+Version: 1.29.1
 Date: 2020-09-01
 Author: Cristobal Fresno and Elmer A. Fernandez
 Maintainer: Cristobal Fresno <cfresno@bdmg.com.ar>
@@ -35,7 +35,8 @@ Collate: 'DAVIDdemo-ids.R' 'DAVIDdemo-geneList.R'
         'DAVIDFunctionalAnnotationTable-methods.R'
         'DAVIDGODag-methods.R' 'DAVIDWebService-accessors.R'
         'DAVIDWebService-methods.R' 'DAVIDWebService-reports.R'
-        'DAVIDClasses-constructor.R' 'RDAVIDWebService-package.R'
+        'DAVIDClasses-constructor.R' 'RDAVIDWebService-package.R' 'zzz.R'
 Suggests: Rgraphviz
 InstallableEverywhere: yes
 biocViews: Visualization, DifferentialExpression, GraphAndNetwork
+PackageStatus: Deprecated
